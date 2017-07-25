@@ -14,9 +14,13 @@ public class SeaMine : MonoBehaviour {
     float PulseSpeed = 3f;
     float pulseCounter = 0f;
 
+    bool countdown = false;
     Color CurrentColour = Color.white;
 
     public Renderer[] ChildrenRenderer;
+
+    public GameObject Explosion;
+    float ThreatDistance = 5f;
 
 	// Use this for initialization
 	void Start ()
@@ -49,6 +53,17 @@ public class SeaMine : MonoBehaviour {
                 ChildrenRenderer[x].material.SetColor("_EmissionColor", tempEmissionColor);
             }
         }
+
+        if( countdown )
+        {
+            CountdownToExplode += Time.deltaTime;
+        }
+
+        if( CountdownToExplode >= BombFuse)
+        {
+            //explode
+            ExplodeMe();
+        }
 	}
 
     void OnTriggerEnter (Collider c)
@@ -67,9 +82,8 @@ public class SeaMine : MonoBehaviour {
         if( c.gameObject.layer == LayerMask.NameToLayer("player"))
         {
             float distance = Vector3.Distance(gameObject.transform.position, c.gameObject.transform.position);
-            if( distance < 3f )
+            if( distance < ThreatDistance )
             {
-                Debug.LogError("KABOOM");
                 TurnRed();
             }
             else
@@ -90,17 +104,25 @@ public class SeaMine : MonoBehaviour {
     void TurnGreen ()
     {
         CurrentColour = Color.Lerp(CurrentColour, Color.green, 1f);
+        countdown = false;
+        CountdownToExplode = 0;
     }
 
     void TurnYellow ()
     {
         CurrentColour = Color.Lerp(CurrentColour, Color.yellow, 1f);
+        countdown = false;
     }
 
     void TurnRed ()
     {
         CurrentColour = Color.Lerp(CurrentColour, Color.red, 1f);
+        countdown = true;
     }
 
-
+    void ExplodeMe ()
+    {
+        Instantiate(Explosion, gameObject.transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
 }
