@@ -22,6 +22,10 @@ public class SeaMine : MonoBehaviour {
     public GameObject Explosion;
     float ThreatDistance = 5f;
 
+    bool Sinking = true;
+
+    float fSinkSpeed = 0.01f;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -42,12 +46,15 @@ public class SeaMine : MonoBehaviour {
             ChildrenRenderer[x].material.color = CurrentColour;
         }
 
+        float emissionfloat = Mathf.PingPong(Time.fixedTime, 1f);
+        Color tempEmissionColor = CurrentColour * emissionfloat;
+
+
         pulseCounter += Time.deltaTime;
         if(pulseCounter >= PulseSpeed)
         {
             pulseCounter = 0f;
-            float emissionfloat = Mathf.PingPong(Time.fixedTime, 1f);
-            Color tempEmissionColor = CurrentColour * emissionfloat;
+            
             for (int x = 0; x < ChildrenRenderer.Length; x++)
             {
                 ChildrenRenderer[x].material.SetColor("_EmissionColor", tempEmissionColor);
@@ -63,6 +70,13 @@ public class SeaMine : MonoBehaviour {
         {
             //explode
             ExplodeMe();
+        }
+
+        if( Sinking )
+        {
+            Vector3 tempFallRate = gameObject.transform.position;
+            tempFallRate -= Vector3.up * fSinkSpeed;
+            gameObject.transform.position = tempFallRate;
         }
 	}
 
@@ -103,20 +117,20 @@ public class SeaMine : MonoBehaviour {
 
     void TurnGreen ()
     {
-        CurrentColour = Color.Lerp(CurrentColour, Color.green, 1f);
+        CurrentColour = Color.green;// Color.Lerp(CurrentColour, Color.green, 1f);
         countdown = false;
         CountdownToExplode = 0;
     }
 
     void TurnYellow ()
     {
-        CurrentColour = Color.Lerp(CurrentColour, Color.yellow, 1f);
+        CurrentColour = Color.yellow;// Color.Lerp(CurrentColour, Color.yellow, 1f);
         countdown = false;
     }
 
     void TurnRed ()
     {
-        CurrentColour = Color.Lerp(CurrentColour, Color.red, 1f);
+        CurrentColour = Color.red;// Color.Lerp(CurrentColour, Color.red, 1f);
         countdown = true;
     }
 

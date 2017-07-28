@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: 830
-    y: 3
+    x: 1176
+    y: 93
     width: 637
     height: 852
   m_ShowMode: 0
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_MinSize: {x: 917, y: 392}
   m_MaxSize: {x: 22012, y: 14042}
   vertical: 0
-  controlID: 47
+  controlID: 172
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -378,8 +378,8 @@ MonoBehaviour:
   m_DepthBufferBits: 32
   m_Pos:
     serializedVersion: 2
-    x: 830
-    y: 25
+    x: 1176
+    y: 115
     width: 637
     height: 830
   m_MaximizeOnPlay: 0
@@ -459,14 +459,14 @@ MonoBehaviour:
     width: 945
     height: 608
   m_SceneLighting: 1
-  lastFramingTime: 3672.230062046706
+  lastFramingTime: 29.664049432091456
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 26.79144, y: 18.742653, z: 74.13713}
+    m_Target: {x: -5.116675, y: 54.326992, z: 4.0452194}
     speed: 2
-    m_Value: {x: 26.79144, y: 18.742653, z: 74.13713}
+    m_Value: {x: -5.116675, y: 54.326992, z: 4.0452194}
   m_RenderMode: 2
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -489,13 +489,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.14719196, y: 0.10070974, z: -0.015039524, w: 0.9838796}
+    m_Target: {x: 0.04346829, y: 0.029969743, z: -0.0012760416, w: 0.99863106}
     speed: 2
-    m_Value: {x: 0.14718804, y: 0.10070706, z: -0.0150391245, w: 0.98385346}
+    m_Value: {x: 0.043467134, y: 0.029968945, z: -0.0012760077, w: 0.99860454}
   m_Size:
-    m_Target: 17.147303
+    m_Target: 603.81116
     speed: 2
-    m_Value: 17.147303
+    m_Value: 603.81116
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -603,9 +603,9 @@ MonoBehaviour:
     height: 608
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 747afbff
+    m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: f041fbffcee2ffffdafbffff0000000096250000
+    m_ExpandedIDs: dafbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -665,7 +665,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Scripts/Enemies
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
@@ -676,7 +676,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: c0040000
     m_LastClickedID: 1216
-    m_ExpandedIDs: 00000000a4240000d0240000de240000022500000e2500001a250000202500004c25000052250000
+    m_ExpandedIDs: 00000000a6240000d2240000e0240000062500001225000014250000242500002a25000062250000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -701,24 +701,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 38}
+    scrollPos: {x: 0, y: 54}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000a4240000d0240000de240000022500000e2500001a250000202500004c2500000a270000
+    m_ExpandedIDs: 00000000a6240000d2240000e0240000062500001225000014250000242500002a25000062250000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: ExplosionDamage
-      m_OriginalName: ExplosionDamage
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 10752
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 13}
     m_SearchString: 
