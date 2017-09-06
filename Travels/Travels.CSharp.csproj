@@ -86,6 +86,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Enemies\ExplosionDamage.cs" />
     <Compile Include="Assets\Scripts\Enemies\SeaMine.cs" />
+    <Compile Include="Assets\Scripts\Managers\ThreatSpawner.cs" />
     <Compile Include="Assets\Scripts\Misc\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Misc\SplashScript.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerMovement.cs" />

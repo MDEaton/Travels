@@ -24,7 +24,8 @@ public class SeaMine : MonoBehaviour {
 
     bool Sinking = true;
 
-    float fSinkSpeed = 0.01f;
+    //float fSinkSpeed = 0.01f;
+    Rigidbody myRigidbody;
 
 	// Use this for initialization
 	void Start ()
@@ -34,13 +35,13 @@ public class SeaMine : MonoBehaviour {
         {
             //myRenderer = gameObject.GetComponent<Renderer>();
         }
-        
+        myRigidbody = gameObject.GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-        gameObject.transform.Rotate(Vector3.one * RotationSpeed);
+        
         for (int x = 0; x < ChildrenRenderer.Length; x++)
         {
             ChildrenRenderer[x].material.color = CurrentColour;
@@ -74,9 +75,11 @@ public class SeaMine : MonoBehaviour {
 
         if( Sinking )
         {
-            Vector3 tempFallRate = gameObject.transform.position;
-            tempFallRate -= Vector3.up * fSinkSpeed;
-            gameObject.transform.position = tempFallRate;
+
+            //Vector3 tempFallRate = gameObject.transform.position;
+            //tempFallRate -= Vector3.up * fSinkSpeed;
+            //gameObject.transform.position = tempFallRate;
+            gameObject.transform.Rotate(Vector3.one * RotationSpeed);
         }
 	}
 
@@ -137,6 +140,23 @@ public class SeaMine : MonoBehaviour {
     void ExplodeMe ()
     {
         Instantiate(Explosion, gameObject.transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
+        gameObject.transform.position = gameObject.transform.parent.transform.position;
+    }
+
+    void OnCollisionEnter ( Collision c)
+    {
+        Debug.Log("collided");
+        if( c.gameObject.layer == LayerMask.NameToLayer("floor"))
+        {
+            Sinking = false;
+            //myRigidbody.useGravity = false;
+            //myRigidbody.isKinematic = true;
+        }
+        else if(c.gameObject.layer == LayerMask.NameToLayer("player"))
+        {
+            ExplodeMe();
+        }
     }
 }
