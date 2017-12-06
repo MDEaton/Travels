@@ -142,7 +142,7 @@ public class SeaMine : MonoBehaviour {
         Instantiate(Explosion, gameObject.transform.position, Quaternion.identity);
         //Destroy(gameObject);
         gameObject.SetActive(false);
-        gameObject.transform.position = gameObject.transform.parent.transform.position;
+        //gameObject.transform.position = gameObject.transform.parent.transform.position;
     }
 
     void OnCollisionEnter ( Collision c)
