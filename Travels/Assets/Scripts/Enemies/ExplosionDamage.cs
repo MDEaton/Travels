@@ -26,6 +26,7 @@ public class ExplosionDamage : MonoBehaviour {
         if( c.gameObject.layer == LayerMask.NameToLayer("player") )
         {
             //do damage
+            c.gameObject.SendMessage("Die");
         }
     }
 }

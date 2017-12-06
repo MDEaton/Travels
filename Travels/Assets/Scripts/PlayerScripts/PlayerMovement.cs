@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject LeftBound, RightBound, UpperBound, LowerBound;
 
+    private bool PlayerControlsEnabled = true;
+
     // Use this for initialization
     void Start()
     {
@@ -28,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1") && PlayerControlsEnabled)
         {
             RaycastHit rayHit;
             Ray rayman = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -79,6 +82,18 @@ public class PlayerMovement : MonoBehaviour
     void NewZ(float z)
     {
         CameraZ = z;
+    }
+
+    void Die ()
+    {
+        gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        StartCoroutine(PlayerDied());
+    }
+
+    IEnumerator PlayerDied ()
+    {
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(0);
     }
 
     void DoMove()
